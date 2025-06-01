@@ -1,6 +1,12 @@
 import axios from "axios";
 
-const api = axios.create();
+const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  timeout: 10000,
+});
 
 api.interceptors.response.use(
   (res) => res,
@@ -13,3 +19,5 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+export default api;
