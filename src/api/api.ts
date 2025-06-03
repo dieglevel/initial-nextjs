@@ -23,23 +23,239 @@ import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
-
 /**
- * JustLogSomethingApi - axios parameter creator
+ * 
+ * @export
+ * @interface BaseResponseDto
+ */
+export interface BaseResponseDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseResponseDto
+     */
+    'message': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof BaseResponseDto
+     */
+    'statusCode': number;
+    /**
+     * 
+     * @type {BaseResponseDtoData}
+     * @memberof BaseResponseDto
+     */
+    'data': BaseResponseDtoData;
+}
+/**
+ * @type BaseResponseDtoData
  * @export
  */
-export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Configuration) {
+export type BaseResponseDtoData = Array<object> | object;
+
+/**
+ * 
+ * @export
+ * @interface CreateDetailInformationDto
+ */
+export interface CreateDetailInformationDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateDetailInformationDto
+     */
+    'fullName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateDetailInformationDto
+     */
+    'dateOfBirth'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateDetailInformationDto
+     */
+    'avatarUrl'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateDetailInformationDto
+     */
+    'thumbnailUrl'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CreateDetailInformationDto
+     */
+    'gender'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface DetailInformationControllerCreate200Response
+ */
+export interface DetailInformationControllerCreate200Response {
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationControllerCreate200Response
+     */
+    'message': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof DetailInformationControllerCreate200Response
+     */
+    'statusCode': number;
+    /**
+     * 
+     * @type {DetailInformationResponse}
+     * @memberof DetailInformationControllerCreate200Response
+     */
+    'data': DetailInformationResponse;
+}
+/**
+ * 
+ * @export
+ * @interface DetailInformationControllerFindAll200Response
+ */
+export interface DetailInformationControllerFindAll200Response {
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationControllerFindAll200Response
+     */
+    'message': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof DetailInformationControllerFindAll200Response
+     */
+    'statusCode': number;
+    /**
+     * 
+     * @type {Array<DetailInformationResponse>}
+     * @memberof DetailInformationControllerFindAll200Response
+     */
+    'data': Array<DetailInformationResponse>;
+}
+/**
+ * 
+ * @export
+ * @interface DetailInformationResponse
+ */
+export interface DetailInformationResponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationResponse
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationResponse
+     */
+    'createdAt': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationResponse
+     */
+    'updatedAt': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DetailInformationResponse
+     */
+    'isDeleted': boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationResponse
+     */
+    'fullName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationResponse
+     */
+    'dateOfBirth'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationResponse
+     */
+    'avatarUrl'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof DetailInformationResponse
+     */
+    'thumbnailUrl'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DetailInformationResponse
+     */
+    'gender'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface UpdateDetailInformationDto
+ */
+export interface UpdateDetailInformationDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateDetailInformationDto
+     */
+    'fullName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateDetailInformationDto
+     */
+    'dateOfBirth'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateDetailInformationDto
+     */
+    'avatarUrl'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateDetailInformationDto
+     */
+    'thumbnailUrl'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UpdateDetailInformationDto
+     */
+    'gender'?: boolean;
+}
+
+/**
+ * DetailInformationApi - axios parameter creator
+ * @export
+ */
+export const DetailInformationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {object} body 
+         * @param {CreateDetailInformationDto} createDetailInformationDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerCreate: async (body: object, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('justLogSomethingControllerCreate', 'body', body)
-            const localVarPath = `/api/just-log-something`;
+        detailInformationControllerCreate: async (createDetailInformationDto: CreateDetailInformationDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createDetailInformationDto' is not null or undefined
+            assertParamExists('detailInformationControllerCreate', 'createDetailInformationDto', createDetailInformationDto)
+            const localVarPath = `/api/detail-information`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -58,7 +274,7 @@ export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createDetailInformationDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -70,8 +286,8 @@ export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Co
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerFindAll: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/just-log-something`;
+        detailInformationControllerFindAll: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/detail-information`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -100,10 +316,10 @@ export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Co
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerFindOne: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        detailInformationControllerFindOne: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('justLogSomethingControllerFindOne', 'id', id)
-            const localVarPath = `/api/just-log-something/{id}`
+            assertParamExists('detailInformationControllerFindOne', 'id', id)
+            const localVarPath = `/api/detail-information/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -133,10 +349,10 @@ export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Co
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerRemove: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        detailInformationControllerRemove: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('justLogSomethingControllerRemove', 'id', id)
-            const localVarPath = `/api/just-log-something/{id}`
+            assertParamExists('detailInformationControllerRemove', 'id', id)
+            const localVarPath = `/api/detail-information/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -163,16 +379,16 @@ export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Co
         /**
          * 
          * @param {string} id 
-         * @param {object} body 
+         * @param {UpdateDetailInformationDto} updateDetailInformationDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerUpdate: async (id: string, body: object, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        detailInformationControllerUpdate: async (id: string, updateDetailInformationDto: UpdateDetailInformationDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('justLogSomethingControllerUpdate', 'id', id)
-            // verify required parameter 'body' is not null or undefined
-            assertParamExists('justLogSomethingControllerUpdate', 'body', body)
-            const localVarPath = `/api/just-log-something/{id}`
+            assertParamExists('detailInformationControllerUpdate', 'id', id)
+            // verify required parameter 'updateDetailInformationDto' is not null or undefined
+            assertParamExists('detailInformationControllerUpdate', 'updateDetailInformationDto', updateDetailInformationDto)
+            const localVarPath = `/api/detail-information/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -192,7 +408,7 @@ export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(updateDetailInformationDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -203,22 +419,22 @@ export const JustLogSomethingApiAxiosParamCreator = function (configuration?: Co
 };
 
 /**
- * JustLogSomethingApi - functional programming interface
+ * DetailInformationApi - functional programming interface
  * @export
  */
-export const JustLogSomethingApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = JustLogSomethingApiAxiosParamCreator(configuration)
+export const DetailInformationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DetailInformationApiAxiosParamCreator(configuration)
     return {
         /**
          * 
-         * @param {object} body 
+         * @param {CreateDetailInformationDto} createDetailInformationDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async justLogSomethingControllerCreate(body: object, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.justLogSomethingControllerCreate(body, options);
+        async detailInformationControllerCreate(createDetailInformationDto: CreateDetailInformationDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerCreate(createDetailInformationDto, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['JustLogSomethingApi.justLogSomethingControllerCreate']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerCreate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -226,22 +442,10 @@ export const JustLogSomethingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async justLogSomethingControllerFindAll(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.justLogSomethingControllerFindAll(options);
+        async detailInformationControllerFindAll(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerFindAll200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerFindAll(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['JustLogSomethingApi.justLogSomethingControllerFindAll']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async justLogSomethingControllerFindOne(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.justLogSomethingControllerFindOne(id, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['JustLogSomethingApi.justLogSomethingControllerFindOne']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerFindAll']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -250,60 +454,63 @@ export const JustLogSomethingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async justLogSomethingControllerRemove(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.justLogSomethingControllerRemove(id, options);
+        async detailInformationControllerFindOne(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerFindOne(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['JustLogSomethingApi.justLogSomethingControllerRemove']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerFindOne']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
          * @param {string} id 
-         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async justLogSomethingControllerUpdate(id: string, body: object, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.justLogSomethingControllerUpdate(id, body, options);
+        async detailInformationControllerRemove(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerRemove(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['JustLogSomethingApi.justLogSomethingControllerUpdate']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerRemove']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {UpdateDetailInformationDto} updateDetailInformationDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async detailInformationControllerUpdate(id: string, updateDetailInformationDto: UpdateDetailInformationDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerCreate200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerUpdate(id, updateDetailInformationDto, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerUpdate']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * JustLogSomethingApi - factory interface
+ * DetailInformationApi - factory interface
  * @export
  */
-export const JustLogSomethingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = JustLogSomethingApiFp(configuration)
+export const DetailInformationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DetailInformationApiFp(configuration)
     return {
         /**
          * 
-         * @param {object} body 
+         * @param {CreateDetailInformationDto} createDetailInformationDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerCreate(body: object, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.justLogSomethingControllerCreate(body, options).then((request) => request(axios, basePath));
+        detailInformationControllerCreate(createDetailInformationDto: CreateDetailInformationDto, options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerCreate200Response> {
+            return localVarFp.detailInformationControllerCreate(createDetailInformationDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerFindAll(options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.justLogSomethingControllerFindAll(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        justLogSomethingControllerFindOne(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.justLogSomethingControllerFindOne(id, options).then((request) => request(axios, basePath));
+        detailInformationControllerFindAll(options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerFindAll200Response> {
+            return localVarFp.detailInformationControllerFindAll(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -311,59 +518,57 @@ export const JustLogSomethingApiFactory = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerRemove(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.justLogSomethingControllerRemove(id, options).then((request) => request(axios, basePath));
+        detailInformationControllerFindOne(id: string, options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerCreate200Response> {
+            return localVarFp.detailInformationControllerFindOne(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {object} body 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        justLogSomethingControllerUpdate(id: string, body: object, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.justLogSomethingControllerUpdate(id, body, options).then((request) => request(axios, basePath));
+        detailInformationControllerRemove(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.detailInformationControllerRemove(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {UpdateDetailInformationDto} updateDetailInformationDto 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        detailInformationControllerUpdate(id: string, updateDetailInformationDto: UpdateDetailInformationDto, options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerCreate200Response> {
+            return localVarFp.detailInformationControllerUpdate(id, updateDetailInformationDto, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * JustLogSomethingApi - object-oriented interface
+ * DetailInformationApi - object-oriented interface
  * @export
- * @class JustLogSomethingApi
+ * @class DetailInformationApi
  * @extends {BaseAPI}
  */
-export class JustLogSomethingApi extends BaseAPI {
+export class DetailInformationApi extends BaseAPI {
     /**
      * 
-     * @param {object} body 
+     * @param {CreateDetailInformationDto} createDetailInformationDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JustLogSomethingApi
+     * @memberof DetailInformationApi
      */
-    public justLogSomethingControllerCreate(body: object, options?: RawAxiosRequestConfig) {
-        return JustLogSomethingApiFp(this.configuration).justLogSomethingControllerCreate(body, options).then((request) => request(this.axios, this.basePath));
+    public detailInformationControllerCreate(createDetailInformationDto: CreateDetailInformationDto, options?: RawAxiosRequestConfig) {
+        return DetailInformationApiFp(this.configuration).detailInformationControllerCreate(createDetailInformationDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JustLogSomethingApi
+     * @memberof DetailInformationApi
      */
-    public justLogSomethingControllerFindAll(options?: RawAxiosRequestConfig) {
-        return JustLogSomethingApiFp(this.configuration).justLogSomethingControllerFindAll(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof JustLogSomethingApi
-     */
-    public justLogSomethingControllerFindOne(id: string, options?: RawAxiosRequestConfig) {
-        return JustLogSomethingApiFp(this.configuration).justLogSomethingControllerFindOne(id, options).then((request) => request(this.axios, this.basePath));
+    public detailInformationControllerFindAll(options?: RawAxiosRequestConfig) {
+        return DetailInformationApiFp(this.configuration).detailInformationControllerFindAll(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -371,22 +576,33 @@ export class JustLogSomethingApi extends BaseAPI {
      * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JustLogSomethingApi
+     * @memberof DetailInformationApi
      */
-    public justLogSomethingControllerRemove(id: string, options?: RawAxiosRequestConfig) {
-        return JustLogSomethingApiFp(this.configuration).justLogSomethingControllerRemove(id, options).then((request) => request(this.axios, this.basePath));
+    public detailInformationControllerFindOne(id: string, options?: RawAxiosRequestConfig) {
+        return DetailInformationApiFp(this.configuration).detailInformationControllerFindOne(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} id 
-     * @param {object} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof JustLogSomethingApi
+     * @memberof DetailInformationApi
      */
-    public justLogSomethingControllerUpdate(id: string, body: object, options?: RawAxiosRequestConfig) {
-        return JustLogSomethingApiFp(this.configuration).justLogSomethingControllerUpdate(id, body, options).then((request) => request(this.axios, this.basePath));
+    public detailInformationControllerRemove(id: string, options?: RawAxiosRequestConfig) {
+        return DetailInformationApiFp(this.configuration).detailInformationControllerRemove(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {UpdateDetailInformationDto} updateDetailInformationDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DetailInformationApi
+     */
+    public detailInformationControllerUpdate(id: string, updateDetailInformationDto: UpdateDetailInformationDto, options?: RawAxiosRequestConfig) {
+        return DetailInformationApiFp(this.configuration).detailInformationControllerUpdate(id, updateDetailInformationDto, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

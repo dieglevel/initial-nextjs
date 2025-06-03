@@ -5,6 +5,13 @@ api.ts
 base.ts
 common.ts
 configuration.ts
-docs/JustLogSomethingApi.md
+docs/BaseResponseDto.md
+docs/BaseResponseDtoData.md
+docs/CreateDetailInformationDto.md
+docs/DetailInformationApi.md
+docs/DetailInformationControllerCreate200Response.md
+docs/DetailInformationControllerFindAll200Response.md
+docs/DetailInformationResponse.md
+docs/UpdateDetailInformationDto.md
 git_push.sh
 index.ts

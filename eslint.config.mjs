@@ -102,7 +102,7 @@ export default defineConfig([globalIgnores([
       "singleQuote": false,
       "jsxSingleQuote": false,
       "quoteProps": "as-needed",
-      "trailingComma": "es5",
+      "trailingComma": "none",
       "singleAttributePerLine": false,
       "htmlWhitespaceSensitivity": "css",
       "vueIndentScriptAndStyle": false,
