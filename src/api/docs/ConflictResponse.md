@@ -1,23 +1,23 @@
-# BaseResponseDto
+# ConflictResponse
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **string** |  | [default to undefined]
 **statusCode** | **number** |  | [default to undefined]
-**data** | [**BaseResponseDtoData**](BaseResponseDtoData.md) |  | [default to undefined]
+**error** | **string** |  | [default to undefined]
+**message** | **string** |  | [default to undefined]
 
 ## Example
 
 ```typescript
-import { BaseResponseDto } from './api';
+import { ConflictResponse } from './api';
 
-const instance: BaseResponseDto = {
-    message,
+const instance: ConflictResponse = {
     statusCode,
-    data,
+    error,
+    message,
 };
 ```
 

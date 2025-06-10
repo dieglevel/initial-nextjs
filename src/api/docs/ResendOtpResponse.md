@@ -1,4 +1,4 @@
-# DetailInformationControllerCreate200Response
+# ResendOtpResponse
 
 
 ## Properties
@@ -6,18 +6,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **string** |  | [default to undefined]
-**statusCode** | **number** |  | [default to undefined]
-**data** | [**DetailInformationResponse**](DetailInformationResponse.md) |  | [default to undefined]
 
 ## Example
 
 ```typescript
-import { DetailInformationControllerCreate200Response } from './api';
+import { ResendOtpResponse } from './api';
 
-const instance: DetailInformationControllerCreate200Response = {
+const instance: ResendOtpResponse = {
     message,
-    statusCode,
-    data,
 };
 ```
 

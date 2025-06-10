@@ -1,17 +1,21 @@
-# BaseResponseDtoData
+# ResendOtpRequest
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**identifier** | **string** |  | [default to undefined]
+**_case** | **string** | The case for which the OTP is being sent | [default to undefined]
 
 ## Example
 
 ```typescript
-import { BaseResponseDtoData } from './api';
+import { ResendOtpRequest } from './api';
 
-const instance: BaseResponseDtoData = {
+const instance: ResendOtpRequest = {
+    identifier,
+    _case,
 };
 ```
 

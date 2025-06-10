@@ -1,35 +1,31 @@
-# DetailInformationResponse
+# CreateAccountResponse
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**username** | **string** |  | [default to 'john_doe']
+**email** | **string** |  | [default to 'john_doe@gmail.com']
 **id** | **string** |  | [default to undefined]
 **createdAt** | **string** |  | [default to undefined]
 **updatedAt** | **string** |  | [default to undefined]
 **isDeleted** | **boolean** |  | [default to undefined]
-**fullName** | **string** |  | [optional] [default to undefined]
-**dateOfBirth** | **string** |  | [optional] [default to undefined]
-**avatarUrl** | **string** |  | [optional] [default to undefined]
-**thumbnailUrl** | **string** |  | [optional] [default to undefined]
-**gender** | **boolean** |  | [optional] [default to undefined]
+**otpToken** | **string** |  | [default to undefined]
 
 ## Example
 
 ```typescript
-import { DetailInformationResponse } from './api';
+import { CreateAccountResponse } from './api';
 
-const instance: DetailInformationResponse = {
+const instance: CreateAccountResponse = {
+    username,
+    email,
     id,
     createdAt,
     updatedAt,
     isDeleted,
-    fullName,
-    dateOfBirth,
-    avatarUrl,
-    thumbnailUrl,
-    gender,
+    otpToken,
 };
 ```
 

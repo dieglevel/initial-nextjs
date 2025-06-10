@@ -1,4 +1,4 @@
-# DetailInformationControllerFindAll200Response
+# AuthControllerRegister200Response
 
 
 ## Properties
@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **message** | **string** |  | [default to undefined]
 **statusCode** | **number** |  | [default to undefined]
-**data** | [**Array&lt;DetailInformationResponse&gt;**](DetailInformationResponse.md) |  | [default to undefined]
+**data** | [**CreateAccountResponse**](CreateAccountResponse.md) |  | [default to undefined]
 
 ## Example
 
 ```typescript
-import { DetailInformationControllerFindAll200Response } from './api';
+import { AuthControllerRegister200Response } from './api';
 
-const instance: DetailInformationControllerFindAll200Response = {
+const instance: AuthControllerRegister200Response = {
     message,
     statusCode,
     data,
