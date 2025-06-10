@@ -26,236 +26,317 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 /**
  * 
  * @export
- * @interface BaseResponseDto
+ * @interface AuthControllerRegister200Response
  */
-export interface BaseResponseDto {
+export interface AuthControllerRegister200Response {
     /**
      * 
      * @type {string}
-     * @memberof BaseResponseDto
+     * @memberof AuthControllerRegister200Response
      */
     'message': string;
     /**
      * 
      * @type {number}
-     * @memberof BaseResponseDto
+     * @memberof AuthControllerRegister200Response
      */
     'statusCode': number;
     /**
      * 
-     * @type {BaseResponseDtoData}
-     * @memberof BaseResponseDto
+     * @type {CreateAccountResponse}
+     * @memberof AuthControllerRegister200Response
      */
-    'data': BaseResponseDtoData;
+    'data': CreateAccountResponse;
 }
 /**
- * @type BaseResponseDtoData
+ * 
+ * @export
+ * @interface AuthControllerResendOtp200Response
+ */
+export interface AuthControllerResendOtp200Response {
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthControllerResendOtp200Response
+     */
+    'message': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof AuthControllerResendOtp200Response
+     */
+    'statusCode': number;
+    /**
+     * 
+     * @type {ResendOtpResponse}
+     * @memberof AuthControllerResendOtp200Response
+     */
+    'data': ResendOtpResponse;
+}
+/**
+ * 
+ * @export
+ * @interface AuthControllerVerifyRegisterOtp200Response
+ */
+export interface AuthControllerVerifyRegisterOtp200Response {
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthControllerVerifyRegisterOtp200Response
+     */
+    'message': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof AuthControllerVerifyRegisterOtp200Response
+     */
+    'statusCode': number;
+    /**
+     * 
+     * @type {VerifyRegisterOtpResponse}
+     * @memberof AuthControllerVerifyRegisterOtp200Response
+     */
+    'data': VerifyRegisterOtpResponse;
+}
+/**
+ * 
+ * @export
+ * @interface BadRequestResponse
+ */
+export interface BadRequestResponse {
+    /**
+     * 
+     * @type {number}
+     * @memberof BadRequestResponse
+     */
+    'statusCode': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof BadRequestResponse
+     */
+    'error': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof BadRequestResponse
+     */
+    'message': string;
+}
+/**
+ * 
+ * @export
+ * @interface BaseResponse
+ */
+export interface BaseResponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof BaseResponse
+     */
+    'message': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof BaseResponse
+     */
+    'statusCode': number;
+    /**
+     * 
+     * @type {BaseResponseData}
+     * @memberof BaseResponse
+     */
+    'data': BaseResponseData;
+}
+/**
+ * @type BaseResponseData
  * @export
  */
-export type BaseResponseDtoData = Array<object> | object;
+export type BaseResponseData = Array<object> | object;
 
 /**
  * 
  * @export
- * @interface CreateDetailInformationDto
+ * @interface ConflictResponse
  */
-export interface CreateDetailInformationDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateDetailInformationDto
-     */
-    'fullName'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateDetailInformationDto
-     */
-    'dateOfBirth'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateDetailInformationDto
-     */
-    'avatarUrl'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateDetailInformationDto
-     */
-    'thumbnailUrl'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof CreateDetailInformationDto
-     */
-    'gender'?: boolean;
-}
-/**
- * 
- * @export
- * @interface DetailInformationControllerCreate200Response
- */
-export interface DetailInformationControllerCreate200Response {
-    /**
-     * 
-     * @type {string}
-     * @memberof DetailInformationControllerCreate200Response
-     */
-    'message': string;
+export interface ConflictResponse {
     /**
      * 
      * @type {number}
-     * @memberof DetailInformationControllerCreate200Response
+     * @memberof ConflictResponse
      */
     'statusCode': number;
     /**
      * 
-     * @type {DetailInformationResponse}
-     * @memberof DetailInformationControllerCreate200Response
+     * @type {string}
+     * @memberof ConflictResponse
      */
-    'data': DetailInformationResponse;
-}
-/**
- * 
- * @export
- * @interface DetailInformationControllerFindAll200Response
- */
-export interface DetailInformationControllerFindAll200Response {
+    'error': string;
     /**
      * 
      * @type {string}
-     * @memberof DetailInformationControllerFindAll200Response
+     * @memberof ConflictResponse
      */
     'message': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof DetailInformationControllerFindAll200Response
-     */
-    'statusCode': number;
-    /**
-     * 
-     * @type {Array<DetailInformationResponse>}
-     * @memberof DetailInformationControllerFindAll200Response
-     */
-    'data': Array<DetailInformationResponse>;
 }
 /**
  * 
  * @export
- * @interface DetailInformationResponse
+ * @interface CreateAccountRequest
  */
-export interface DetailInformationResponse {
+export interface CreateAccountRequest {
     /**
      * 
      * @type {string}
-     * @memberof DetailInformationResponse
+     * @memberof CreateAccountRequest
+     */
+    'username': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateAccountRequest
+     */
+    'email': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateAccountRequest
+     */
+    'password': string;
+}
+/**
+ * 
+ * @export
+ * @interface CreateAccountResponse
+ */
+export interface CreateAccountResponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateAccountResponse
+     */
+    'username': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateAccountResponse
+     */
+    'email': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateAccountResponse
      */
     'id': string;
     /**
      * 
      * @type {string}
-     * @memberof DetailInformationResponse
+     * @memberof CreateAccountResponse
      */
     'createdAt': string;
     /**
      * 
      * @type {string}
-     * @memberof DetailInformationResponse
+     * @memberof CreateAccountResponse
      */
     'updatedAt': string;
     /**
      * 
      * @type {boolean}
-     * @memberof DetailInformationResponse
+     * @memberof CreateAccountResponse
      */
     'isDeleted': boolean;
     /**
      * 
      * @type {string}
-     * @memberof DetailInformationResponse
+     * @memberof CreateAccountResponse
      */
-    'fullName'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DetailInformationResponse
-     */
-    'dateOfBirth'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DetailInformationResponse
-     */
-    'avatarUrl'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof DetailInformationResponse
-     */
-    'thumbnailUrl'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof DetailInformationResponse
-     */
-    'gender'?: boolean;
+    'otpToken': string;
 }
 /**
  * 
  * @export
- * @interface UpdateDetailInformationDto
+ * @interface ResendOtpRequest
  */
-export interface UpdateDetailInformationDto {
+export interface ResendOtpRequest {
     /**
      * 
      * @type {string}
-     * @memberof UpdateDetailInformationDto
+     * @memberof ResendOtpRequest
      */
-    'fullName'?: string;
+    'identifier': string;
+    /**
+     * The case for which the OTP is being sent
+     * @type {string}
+     * @memberof ResendOtpRequest
+     */
+    'case': ResendOtpRequestCaseEnum;
+}
+
+export const ResendOtpRequestCaseEnum = {
+    Register: 'register',
+    Update: 'update',
+    Forget: 'forget'
+} as const;
+
+export type ResendOtpRequestCaseEnum = typeof ResendOtpRequestCaseEnum[keyof typeof ResendOtpRequestCaseEnum];
+
+/**
+ * 
+ * @export
+ * @interface ResendOtpResponse
+ */
+export interface ResendOtpResponse {
     /**
      * 
      * @type {string}
-     * @memberof UpdateDetailInformationDto
+     * @memberof ResendOtpResponse
      */
-    'dateOfBirth'?: string;
+    'message': string;
+}
+/**
+ * 
+ * @export
+ * @interface VerifyRegisterOtpRequest
+ */
+export interface VerifyRegisterOtpRequest {
     /**
-     * 
+     * The OTP code sent to the user\'s email
      * @type {string}
-     * @memberof UpdateDetailInformationDto
+     * @memberof VerifyRegisterOtpRequest
      */
-    'avatarUrl'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateDetailInformationDto
-     */
-    'thumbnailUrl'?: string;
+    'otp': string;
+}
+/**
+ * 
+ * @export
+ * @interface VerifyRegisterOtpResponse
+ */
+export interface VerifyRegisterOtpResponse {
     /**
      * 
      * @type {boolean}
-     * @memberof UpdateDetailInformationDto
+     * @memberof VerifyRegisterOtpResponse
      */
-    'gender'?: boolean;
+    'success': boolean;
 }
 
 /**
- * DetailInformationApi - axios parameter creator
+ * AuthApi - axios parameter creator
  * @export
  */
-export const DetailInformationApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AuthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {CreateDetailInformationDto} createDetailInformationDto 
+         * @param {CreateAccountRequest} createAccountRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        detailInformationControllerCreate: async (createDetailInformationDto: CreateDetailInformationDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createDetailInformationDto' is not null or undefined
-            assertParamExists('detailInformationControllerCreate', 'createDetailInformationDto', createDetailInformationDto)
-            const localVarPath = `/api/detail-information`;
+        authControllerRegister: async (createAccountRequest: CreateAccountRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createAccountRequest' is not null or undefined
+            assertParamExists('authControllerRegister', 'createAccountRequest', createAccountRequest)
+            const localVarPath = `/api/auth/register`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -274,7 +355,7 @@ export const DetailInformationApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createDetailInformationDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createAccountRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -283,11 +364,14 @@ export const DetailInformationApiAxiosParamCreator = function (configuration?: C
         },
         /**
          * 
+         * @param {ResendOtpRequest} resendOtpRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        detailInformationControllerFindAll: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/detail-information`;
+        authControllerResendOtp: async (resendOtpRequest: ResendOtpRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resendOtpRequest' is not null or undefined
+            assertParamExists('authControllerResendOtp', 'resendOtpRequest', resendOtpRequest)
+            const localVarPath = `/api/auth/resend-otp`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -295,109 +379,7 @@ export const DetailInformationApiAxiosParamCreator = function (configuration?: C
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        detailInformationControllerFindOne: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('detailInformationControllerFindOne', 'id', id)
-            const localVarPath = `/api/detail-information/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        detailInformationControllerRemove: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('detailInformationControllerRemove', 'id', id)
-            const localVarPath = `/api/detail-information/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {UpdateDetailInformationDto} updateDetailInformationDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        detailInformationControllerUpdate: async (id: string, updateDetailInformationDto: UpdateDetailInformationDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('detailInformationControllerUpdate', 'id', id)
-            // verify required parameter 'updateDetailInformationDto' is not null or undefined
-            assertParamExists('detailInformationControllerUpdate', 'updateDetailInformationDto', updateDetailInformationDto)
-            const localVarPath = `/api/detail-information/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -408,7 +390,48 @@ export const DetailInformationApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateDetailInformationDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(resendOtpRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} otpToken Token for otp verification
+         * @param {VerifyRegisterOtpRequest} verifyRegisterOtpRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        authControllerVerifyRegisterOtp: async (otpToken: string, verifyRegisterOtpRequest: VerifyRegisterOtpRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'otpToken' is not null or undefined
+            assertParamExists('authControllerVerifyRegisterOtp', 'otpToken', otpToken)
+            // verify required parameter 'verifyRegisterOtpRequest' is not null or undefined
+            assertParamExists('authControllerVerifyRegisterOtp', 'verifyRegisterOtpRequest', verifyRegisterOtpRequest)
+            const localVarPath = `/api/auth/verify-register-otp`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            if (otpToken != null) {
+                localVarHeaderParameter['OtpToken'] = String(otpToken);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(verifyRegisterOtpRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -419,190 +442,129 @@ export const DetailInformationApiAxiosParamCreator = function (configuration?: C
 };
 
 /**
- * DetailInformationApi - functional programming interface
+ * AuthApi - functional programming interface
  * @export
  */
-export const DetailInformationApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DetailInformationApiAxiosParamCreator(configuration)
+export const AuthApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AuthApiAxiosParamCreator(configuration)
     return {
         /**
          * 
-         * @param {CreateDetailInformationDto} createDetailInformationDto 
+         * @param {CreateAccountRequest} createAccountRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async detailInformationControllerCreate(createDetailInformationDto: CreateDetailInformationDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerCreate200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerCreate(createDetailInformationDto, options);
+        async authControllerRegister(createAccountRequest: CreateAccountRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthControllerRegister200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerRegister(createAccountRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerCreate']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.authControllerRegister']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
+         * @param {ResendOtpRequest} resendOtpRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async detailInformationControllerFindAll(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerFindAll200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerFindAll(options);
+        async authControllerResendOtp(resendOtpRequest: ResendOtpRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthControllerResendOtp200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerResendOtp(resendOtpRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerFindAll']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.authControllerResendOtp']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {string} id 
+         * @param {string} otpToken Token for otp verification
+         * @param {VerifyRegisterOtpRequest} verifyRegisterOtpRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async detailInformationControllerFindOne(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerCreate200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerFindOne(id, options);
+        async authControllerVerifyRegisterOtp(otpToken: string, verifyRegisterOtpRequest: VerifyRegisterOtpRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthControllerVerifyRegisterOtp200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.authControllerVerifyRegisterOtp(otpToken, verifyRegisterOtpRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerFindOne']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async detailInformationControllerRemove(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerRemove(id, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerRemove']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {UpdateDetailInformationDto} updateDetailInformationDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async detailInformationControllerUpdate(id: string, updateDetailInformationDto: UpdateDetailInformationDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DetailInformationControllerCreate200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.detailInformationControllerUpdate(id, updateDetailInformationDto, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DetailInformationApi.detailInformationControllerUpdate']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.authControllerVerifyRegisterOtp']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DetailInformationApi - factory interface
+ * AuthApi - factory interface
  * @export
  */
-export const DetailInformationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DetailInformationApiFp(configuration)
+export const AuthApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AuthApiFp(configuration)
     return {
         /**
          * 
-         * @param {CreateDetailInformationDto} createDetailInformationDto 
+         * @param {CreateAccountRequest} createAccountRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        detailInformationControllerCreate(createDetailInformationDto: CreateDetailInformationDto, options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerCreate200Response> {
-            return localVarFp.detailInformationControllerCreate(createDetailInformationDto, options).then((request) => request(axios, basePath));
+        authControllerRegister(createAccountRequest: CreateAccountRequest, options?: RawAxiosRequestConfig): AxiosPromise<AuthControllerRegister200Response> {
+            return localVarFp.authControllerRegister(createAccountRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
+         * @param {ResendOtpRequest} resendOtpRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        detailInformationControllerFindAll(options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerFindAll200Response> {
-            return localVarFp.detailInformationControllerFindAll(options).then((request) => request(axios, basePath));
+        authControllerResendOtp(resendOtpRequest: ResendOtpRequest, options?: RawAxiosRequestConfig): AxiosPromise<AuthControllerResendOtp200Response> {
+            return localVarFp.authControllerResendOtp(resendOtpRequest, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {string} id 
+         * @param {string} otpToken Token for otp verification
+         * @param {VerifyRegisterOtpRequest} verifyRegisterOtpRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        detailInformationControllerFindOne(id: string, options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerCreate200Response> {
-            return localVarFp.detailInformationControllerFindOne(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        detailInformationControllerRemove(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.detailInformationControllerRemove(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {UpdateDetailInformationDto} updateDetailInformationDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        detailInformationControllerUpdate(id: string, updateDetailInformationDto: UpdateDetailInformationDto, options?: RawAxiosRequestConfig): AxiosPromise<DetailInformationControllerCreate200Response> {
-            return localVarFp.detailInformationControllerUpdate(id, updateDetailInformationDto, options).then((request) => request(axios, basePath));
+        authControllerVerifyRegisterOtp(otpToken: string, verifyRegisterOtpRequest: VerifyRegisterOtpRequest, options?: RawAxiosRequestConfig): AxiosPromise<AuthControllerVerifyRegisterOtp200Response> {
+            return localVarFp.authControllerVerifyRegisterOtp(otpToken, verifyRegisterOtpRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * DetailInformationApi - object-oriented interface
+ * AuthApi - object-oriented interface
  * @export
- * @class DetailInformationApi
+ * @class AuthApi
  * @extends {BaseAPI}
  */
-export class DetailInformationApi extends BaseAPI {
+export class AuthApi extends BaseAPI {
     /**
      * 
-     * @param {CreateDetailInformationDto} createDetailInformationDto 
+     * @param {CreateAccountRequest} createAccountRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DetailInformationApi
+     * @memberof AuthApi
      */
-    public detailInformationControllerCreate(createDetailInformationDto: CreateDetailInformationDto, options?: RawAxiosRequestConfig) {
-        return DetailInformationApiFp(this.configuration).detailInformationControllerCreate(createDetailInformationDto, options).then((request) => request(this.axios, this.basePath));
+    public authControllerRegister(createAccountRequest: CreateAccountRequest, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).authControllerRegister(createAccountRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
+     * @param {ResendOtpRequest} resendOtpRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DetailInformationApi
+     * @memberof AuthApi
      */
-    public detailInformationControllerFindAll(options?: RawAxiosRequestConfig) {
-        return DetailInformationApiFp(this.configuration).detailInformationControllerFindAll(options).then((request) => request(this.axios, this.basePath));
+    public authControllerResendOtp(resendOtpRequest: ResendOtpRequest, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).authControllerResendOtp(resendOtpRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {string} id 
+     * @param {string} otpToken Token for otp verification
+     * @param {VerifyRegisterOtpRequest} verifyRegisterOtpRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof DetailInformationApi
+     * @memberof AuthApi
      */
-    public detailInformationControllerFindOne(id: string, options?: RawAxiosRequestConfig) {
-        return DetailInformationApiFp(this.configuration).detailInformationControllerFindOne(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DetailInformationApi
-     */
-    public detailInformationControllerRemove(id: string, options?: RawAxiosRequestConfig) {
-        return DetailInformationApiFp(this.configuration).detailInformationControllerRemove(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} id 
-     * @param {UpdateDetailInformationDto} updateDetailInformationDto 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DetailInformationApi
-     */
-    public detailInformationControllerUpdate(id: string, updateDetailInformationDto: UpdateDetailInformationDto, options?: RawAxiosRequestConfig) {
-        return DetailInformationApiFp(this.configuration).detailInformationControllerUpdate(id, updateDetailInformationDto, options).then((request) => request(this.axios, this.basePath));
+    public authControllerVerifyRegisterOtp(otpToken: string, verifyRegisterOtpRequest: VerifyRegisterOtpRequest, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).authControllerVerifyRegisterOtp(otpToken, verifyRegisterOtpRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

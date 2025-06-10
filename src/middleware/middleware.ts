@@ -20,5 +20,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/profile"], // Trang cần auth
+  matcher: ["/dashboard/:path*", "/profile"] // Trang cần auth
 };

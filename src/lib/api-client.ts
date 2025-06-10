@@ -1,10 +1,11 @@
 import axios, { AxiosInstance } from "axios";
 import { addToast } from "@heroui/toast";
 
-import { Configuration, DetailInformationApi } from "@/api"; // đường dẫn tùy bạn
+import { AuthApi, Configuration } from "@/api"; // đường dẫn tùy bạn
 
 let axiosInstance: AxiosInstance | null = null;
-let detailInformationApiInstance: DetailInformationApi | null = null;
+// let detailInformationApiInstance: DetailInformationApi | null = null;
+let AuthApiInstance: AuthApi | null = null;
 
 /**
  * Tạo hoặc lấy axios singleton instance.
@@ -63,8 +64,28 @@ function getAxiosInstance(token?: string): AxiosInstance {
  * Lấy instance DetailInformationApi singleton.
  * @param token Chuỗi token nếu có (SSR truyền vào).
  */
-export function getDetailInformationApi(token?: string): DetailInformationApi {
-  if (!detailInformationApiInstance) {
+// export function getDetailInformationApi(token?: string): DetailInformationApi {
+//   if (!detailInformationApiInstance) {
+//     const axiosIns = getAxiosInstance(token);
+//     const config = new Configuration({
+//       basePath: process.env.NEXT_PUBLIC_API_BASE_URL
+//       // Một số generator cho truyền axiosInstance trong config hoặc api constructor
+//       // Nếu generator của bạn cho phép truyền axiosInstance vào config thì truyền như này:
+//       // baseOptions: { axiosInstance: axiosIns }
+//     });
+
+//     detailInformationApiInstance = new DetailInformationApi(
+//       config,
+//       undefined,
+//       axiosIns
+//     );
+//   }
+
+//   return detailInformationApiInstance;
+// }
+
+export function getAuthApi(token?: string): AuthApi {
+  if (!AuthApiInstance) {
     const axiosIns = getAxiosInstance(token);
     const config = new Configuration({
       basePath: process.env.NEXT_PUBLIC_API_BASE_URL
@@ -73,12 +94,8 @@ export function getDetailInformationApi(token?: string): DetailInformationApi {
       // baseOptions: { axiosInstance: axiosIns }
     });
 
-    detailInformationApiInstance = new DetailInformationApi(
-      config,
-      undefined,
-      axiosIns
-    );
+    AuthApiInstance = new AuthApi(config, undefined, axiosIns);
   }
 
-  return detailInformationApiInstance;
+  return AuthApiInstance;
 }
